@@ -86,13 +86,15 @@ def value_function(s: State):
 
 
 #TODO add new generation values to new list so that they don't effect other states during current gen.
-def new_Generation(s : List[State]):
+def new_Generation(s: List[State]):
+    new_list: List[State] = []
     indexlist = [i for i in range(len(s))]
     shuffle(indexlist)
     for i in indexlist:
         tmp = s[i].get_val()
         s[i].val = value_function(s[i])
         s[i].set_last_val(tmp)
+
 
 
 
